@@ -1,7 +1,6 @@
 #Author: McCollum, Jaylin; Date: 01/27/2026; Purpose: Microarray Analysis
 
 # Install Affy Package
-
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
     
@@ -25,5 +24,12 @@ library(affy)
 
 
 # Set Working Directory
+setwd("/Users/jaylinmccollum/Desktop/Bioinformatics2")
 
-> setwd/Users/jaylinmccollum/Desktop/Bioinformatics2
+# Read 4 .CEL Files in R
+data <- ReadAffy()
+
+# Generate a boxplat to visualize dataset
+boxplot(data)
+
+# Normalize the Dataset to remove any outliers and stable the median for all .CEL Files
