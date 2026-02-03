@@ -33,3 +33,12 @@ data <- ReadAffy()
 boxplot(data)
 
 # Normalize the Dataset to remove any outliers and stable the median for all .CEL Files
+# RMA Robust Multi Array
+normalizeddata <- rma(data)
+
+# Generate a boxplat to visualize normalized dataset
+boxplot(exprs(normalizeddata))
+
+# Fold change analyses while comparing treatment vs control samples
+# Let's assume GSM4843.CEL + GSM4844 samples to be Leukemia/Blood cancer and GSM4845.CEL and GSM4548.CEL and GSSM4846.CEL to b Normal blood samples
+
