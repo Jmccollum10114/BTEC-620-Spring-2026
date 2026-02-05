@@ -42,3 +42,14 @@ boxplot(exprs(normalizeddata))
 # Fold change analyses while comparing treatment vs control samples
 # Let's assume GSM4843.CEL + GSM4844 samples to be Leukemia/Blood cancer and GSM4845.CEL and GSM4548.CEL and GSSM4846.CEL to b Normal blood samples
 
+# Take means/average on each row 
+Newdata <- exprs(normalizeddata)
+Treatment <- Newdata[,c(1,2)]
+Control <- Newdata[,c(3,4)]
+
+# Apply the rowmeans function to calculate averages 
+Treatmentaverage <- rowMeans(Treatment)
+ControlAverage <- rowMeans(Control)
+
+# Apply fold change by subtraction
+foldchange <- Treatmentaverage - Controlaverage
